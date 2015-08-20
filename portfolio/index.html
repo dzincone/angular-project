@@ -7,9 +7,9 @@
   </head>
   <body>
     <nav class="navbar navbar-default">
-      <a ng-class="{ active: isActive('/projects')}" href="/projects">Projects</a>
-      <a ng-class="{ active: isActive('/bio')}" href="/bio">Bio</a>
-      <a ng-class="{ active: isActive('/resume')}" href="/resume">Resume</a>
+      <a href="/projects" ng-class="{ active: isActive('/projects')}"><button type="button" class="btn btn-primary" >Projects</button></a>
+      <button type="button" class="btn btn-primary" ng-class="{ active: isActive('/bio')}"><a href="/bio">Bio</a></button>
+      <button type="button" class="btn btn-primary" ng-class="{ active: isActive('/resume')}"><a href="/resume">Resume</a></button>
     </nav>
     <div ng-view></div>
 
