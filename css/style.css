@@ -1,0 +1,201 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+header h1 {
+  font-family: sans-serif;
+  font-weight: normal;
+  margin: 0;
+  font-size: 1.4em;
+}
+
+header h2 {
+  font-family: sans-serif;
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+header {
+  margin-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #A09EA0;
+}
+
+.container {
+  width: 100%;
+
+}
+
+.header {
+  background-color: #FBFAFB;
+}
+.row {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.post-form {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.label {
+  text-align: left;
+  width: 10%;
+}
+
+.input {
+  width: 85%;
+}
+
+.input input {
+  width: 100%;
+}
+
+.title {
+  display: inline-block;
+  width: 12%;
+}
+
+.new-post {
+  display: inline-block;
+  width: 12%;
+}
+
+.search-bar {
+  display: inline-block;
+  width: 12%;
+}
+.search-bar input {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: .8em;
+}
+
+.sort {
+  display: inline-block;
+  width: 12%;
+}
+
+.sort select {
+  width: 20px;
+  border: none;
+  outline: none;
+}
+
+.new-comment {
+  width: 100%;
+  background-color: #FBFAFB;
+  overflow: hidden;
+  margin-top: 20px;
+  border: 1px solid #EFEEF0;
+  height: auto;
+}
+
+.comment-image {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  margin: 20px;
+  vertical-align: top;
+}
+
+.comment-image img {
+  width: 150px;
+  height: 150px;
+
+}
+
+.comment-content {
+  width: 70%;
+  margin: 20px;
+  display: inline-block;
+  height: 100px;
+}
+
+.comment-title {
+  width: 100%;
+}
+
+.comment-title h1 {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.comment-author {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.comment-author p {
+  margin-bottom: 0;
+}
+
+.comment-comment p {
+  margin-bottom: 0;
+}
+
+.bottom-info {
+  vertical-align: bottom;
+  width: 100%;
+  overflow: hidden;
+}
+
+.comment-date {
+  padding-right: 20px;
+  display: inline-block;
+}
+.comment-subComments {
+  padding-right: 20px;
+  display: inline-block;
+}
+
+.comment-addComment {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.new-subComment {
+  width: 100%;
+  clear: both;
+}
+
+.show-sub-comments {
+  width: 100%;
+  clear: both;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+.ng-enter {
+  animation: 0.3s fadeIn;
+}
+
+.ng-leave {
+  animation:1.0s fadeOut;
+}
+
+.ng-hide-add{
+  animation: 0.7s fadeOut;
+}
+
+.ng-hide-remove {
+  animation: 0.7s fadeOut;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html ng-app="reddit">
+  <head>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css' rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container" ng-controller="mainPage">
+      <div class="header">
+      <header>
+          <div class="title">
+            <h1>Reddit Clone</h1>
+          </div>
+          <div class="new-post">
+            <h2 ng-click="newPost()">+ Submit Post</h2>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="Search" ng-model="search.$">
+          </div>
+          <div class="sort">
+            <label for="sort"> Sort By: </label>
+            <select id="sort" ng-model="sort">
+              <option value="voteCount"> Votes
+              <option value="comment-date"> Date
+              <option value="comment-title"> Title
+            </select>
+          </div>
+      </header>
+    </div>
+      <div class="container">
+        <main>
+          <div class="row">
+            <div class="post-form" ng-show="postStatus == true">
+              <form validate ng-submit="submitForm()">
+              <div class="row">
+                <div class="label">
+                  <label for="title"> Title </label>
+                </div>
+                <div class="input">
+                  <input required id="title" type="text" ng-model="title">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="label">
+                  <label for="author"> Author </label>
+                </div>
+                <div class="input">
+                  <input required id="author" type="text" ng-model="author">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="label">
+                  <label for="image"> Image URL </label>
+                </div>
+                <div class="input">
+                  <input required id="image" type="text" ng-model="image">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="label">
+                  <label for="comment"> Comment </label>
+                </div>
+                <div class="input">
+                  <input required id="comment" type="text" ng-model="comment">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="label">
+                  <input type="submit" value="Submit Post">
+                </div>
+                <div class="input">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div ng-controller="smallComments" ng-repeat="comment in allComments | filter:search | orderBy:sort">
+              <div class="row">
+                <div class="new-comment">
+                  <div class="comment-image">
+                    <img ng-src={{comment.image}}>
+                  </div>
+                  <div class="comment-content">
+                    <div class="comment-title">
+                      <h1>{{comment.title}} | <i  ng-click="upvote()" class="fa fa-arrow-up"></i>
+                         <i ng-click="downvote()" class="fa fa-arrow-down"></i>
+                         <span ng-class="{positive: voteCount > 0, negative: voteCount < 0}">{{voteCount}}</span></h1>
+                    </div>
+                    <div class="comment-author">
+                      <p>By {{comment.author}}</p>
+                    </div>
+                    <div class="comment-comment">
+                      <p>{{comment.comment}}</p>
+                    </div>
+                    <div class="bottom-info"  ng-controller="subComments">
+                      <div class="comment-date">
+                        <p><i class="fa fa-calendar-plus-o"></i>{{comment.date |  amCalendar}}</p>
+                      </div>
+                      <div class="comment-subComments">
+                        <p><i ng-click="showSubComments()" class="fa fa-commenting-o"></i>
+                          <ng-pluralize count=subComments.length when="{'1': '1 comment',
+                                'other': '{} comments'}">
+                            </ng-pluralize></p>
+                      </div>
+                      <div class="comment-addComment">
+                        <p ng-click="showAddComment()"><i class="fa fa-pencil"></i> Add Comment </p>
+                      </div>
+                      <div class="new-subComment" ng-show="subCommentStatus === true">
+                          <label for="subAuthor">Author</label>
+                          <input required type="text" ng-model="subAuthor" id="subAuthor">
+                          <label for="subText">Text</label>
+                          <input required type="text" ng-model="subText" id="subText">
+                          <input type="submit" value="Add Comment" ng-click="addComment()">
+                      </div>
+                      <div class="show-sub-comments" ng-show="commentStatus === true">
+                        <div ng-repeat="subcomment in subComments">
+                          <p>{{subcomment.name}}  {{subcomment.text}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </main>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-animate.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-git2.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers.js"></script>
+    <script src="./js/filters.js"></script>
+  </body>
+</html>
