@@ -1,1 +1,1 @@
-var app = angular.module("reddit", ['angularMoment', 'ngAnimate']);
+var app = angular.module("reddit", ['angularMoment', 'ngAnimate', 'ngRoute']);

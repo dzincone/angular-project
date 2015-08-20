@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="mouseOverDirectiveApp">
+  <head>
+    <base href="/">
+  </head>
+  <body>
+    <input ng-model="color" type="text">
+    <div gs-change-background style="background-color: {{color}}">Hello World!
+    </div>
+    <h1>NAVBAR</h1>
+
+    <div ng-view></div>
+
+    <h1>FOOTER</h1>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
+    <script src="app.js" type="text/javascript"></script>
+  </body>
+</html>
