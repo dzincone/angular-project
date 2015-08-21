@@ -18,6 +18,10 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl: 'partials/resume.html',
         controller: 'ResumeController'
       })
+      .when('/:math/:first/:second', {
+        templateUrl: 'partials/math.html',
+        controller: 'AdditionController'
+      })
       .otherwise({redirectTo: "/"})
 
       $locationProvider.html5Mode(true)
@@ -26,6 +30,16 @@ app.config(function($routeProvider, $locationProvider) {
 app.controller("Header", function($scope, $location){
   $scope.getUrl = function(){
     return $location.url()
+  }
+})
+
+app.controller("AdditionController", function($scope, $routeParams){
+  if($routeParams.math === "add"){
+      $scope.add = parseInt($routeParams.first) + parseInt($routeParams.second)
+  } else if ($routeParams.math === "divide"){
+      $scope.divide = parseInt($routeParams.first) / parseInt($routeParams.second)
+  } else if ($routeParams.math === "multiply"){
+      $scope.multiply = parseInt($routeParams.first) * parseInt($routeParams.second)
   }
 })
 
