@@ -6,10 +6,10 @@
     <base href="/">
   </head>
   <body>
-    <nav class="navbar navbar-default">
-      <a href="/projects" ng-class="{ active: isActive('/projects')}"><button type="button" class="btn btn-primary" >Projects</button></a>
-      <button type="button" class="btn btn-primary" ng-class="{ active: isActive('/bio')}"><a href="/bio">Bio</a></button>
-      <button type="button" class="btn btn-primary" ng-class="{ active: isActive('/resume')}"><a href="/resume">Resume</a></button>
+    <nav class="navbar navbar-default" ng-controller="Header">
+      <a href="/projects"><button type="button" ng-class="{'btn-primary': getUrl() === '/projects'}">Projects</button></a>
+      <a href="/bio"><button type="button" ng-class="{'btn-primary': getUrl() === '/bio'}">Bio</button></a>
+      <a href="/resume"><button type="button" ng-class="{'btn-primary': getUrl() === '/resume'}">Resume</button></a>
     </nav>
     <div ng-view></div>
 

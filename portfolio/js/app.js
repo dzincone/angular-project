@@ -23,28 +23,25 @@ app.config(function($routeProvider, $locationProvider) {
       $locationProvider.html5Mode(true)
 });
 
-app.controller("HomeController", function($scope){
-  $scope.greeting = "Hello to the home view!",
-  $scope.isActive = function (viewLocation) {
-        return viewLocation === $location.path();
-    };
+app.controller("Header", function($scope, $location){
+  $scope.getUrl = function(){
+    return $location.url()
+  }
 })
 
-app.controller("ProjectsController", function($scope){
+app.controller("HomeController", function($scope, $location){
   $scope.greeting = "Hello to the home view!",
   $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path();
-    };
+    }
 })
-app.controller("BioController", function($scope){
-  $scope.greeting = "Hello to the home view!",
-  $scope.isActive = function (viewLocation) {
-        return viewLocation === $location.path();
-    };
+
+app.controller("ProjectsController", function($scope, $location){
+
 })
-app.controller("ResumeController", function($scope){
-  $scope.greeting = "Hello to the home view!",
-  $scope.isActive = function (viewLocation) {
-        return viewLocation === $location.path();
-    };
+app.controller("BioController", function($scope, $location){
+
+})
+app.controller("ResumeController", function($scope, $location){
+
 })
