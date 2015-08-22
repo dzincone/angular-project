@@ -60,6 +60,15 @@ app.controller("HomeController", function($scope, $location, $http){
     }, function(response){
       $scope.errorResponse = response.config.url + " is not a great website. Choose a new one!"
     })
+    $http.get("https://shielded-peak-6345.herokuapp.com/messages").then(function(rails){
+      $scope.railsContent = rails.data
+    })
+    $scope.submit = function(){
+      setTimeout(function rePost() {
+        $http.post("https://shielded-peak-6345.herokuapp.com/messages", {name: $scope.name, content: $scope.content})
+        setTimeout(rePost, 10)
+      }, 10)
+    }
 });
 
 app.controller("ProjectsController", function($scope, $location){

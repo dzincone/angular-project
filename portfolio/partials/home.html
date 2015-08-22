@@ -1,5 +1,18 @@
 <h1>Home</h1>
+<h1>Zen Data</h1>
 {{zenData}}
+{{railsError}}
+<br>
+<h1>Rails Stuff</h1>
+<label>Add your name</label>
+<input name="name" type="text" ng-model="name">
+<label>Add Your content</label>
+<input name="content" type="text" ng-model="content">
+<button type="button" ng-click="submit()">Submit New Name</button>
+<ul ng-repeat="name in railsContent">
+  <li>{{name.name}}
+
+</ul>
 <div ng-repeat="title in itunesData">
   <p>{{title.trackName}}</p>
 </div>
